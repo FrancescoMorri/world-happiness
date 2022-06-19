@@ -6,6 +6,7 @@ import json
 import numpy as np
 import altair as alt
 
+@st.cache(allow_output_mutation=True)
 def load_data(PATH, H_PATH):
     geo_data = gpd.read_file(PATH)[['name','geometry']]
     h_data = pd.read_csv(H_PATH)[['Country','Happiness score','Rank']]
