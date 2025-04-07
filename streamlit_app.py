@@ -9,7 +9,7 @@ import altair as alt
 st.set_page_config(page_title='Happiness Score', page_icon="🗺️", layout="wide")
 
 
-@st.cache_data(allow_output_mutation=True)
+@st.cache_data()
 def load_data(PATH, H_PATH):
     geo_data = gpd.read_file(PATH)[['name','geometry']]
     h_data = pd.read_csv(H_PATH)[['Country','Happiness score','Rank']]
