@@ -3,7 +3,6 @@ import pandas as pd
 import geopandas as gpd
 import streamlit as st
 import json
-import numpy as np
 import altair as alt
 
 @st.cache(allow_output_mutation=True)
