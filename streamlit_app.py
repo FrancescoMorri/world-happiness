@@ -5,7 +5,11 @@ import streamlit as st
 import json
 import altair as alt
 
-@st.cache(allow_output_mutation=True)
+
+st.set_page_config(page_title='Happiness Score', page_icon="🗺️", layout="wide")
+
+
+@st.cache_data(allow_output_mutation=True)
 def load_data(PATH, H_PATH):
     geo_data = gpd.read_file(PATH)[['name','geometry']]
     h_data = pd.read_csv(H_PATH)[['Country','Happiness score','Rank']]
@@ -21,7 +25,7 @@ with open('graph_data.json') as f:
     plot_data = json.load(f)
 
 
-st.set_page_config(page_title='Happiness Score', page_icon="🗺️", layout="wide")
+
 st.title("Happiness Score Around the World through the Years")
 st.caption("Data from the Happiness Report plotted on the globe. The more blue a nation is, the happiest is supposed to be. Conversely, more red means less happiness. After the map it is possible to confront the evolution in time of happiness for different nations.")
 
